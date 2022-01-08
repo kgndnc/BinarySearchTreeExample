@@ -47,6 +47,34 @@ void insertNode(TreeNodePtr* treePtr, int value){
     }
     // If the value is the as the current node's data then don't insert it.
 }
+/* Preorder:
+ * Root
+ * Left subtree
+ * Right subtree
+ */
+void preOrder(TreeNodePtr treeNodePtr){
+    printf("%d",treeNodePtr->data);
+    if (treeNodePtr->leftPtr != NULL)
+        preOrder(treeNodePtr->leftPtr);
+    if (treeNodePtr->rightPtr != NULL)
+        preOrder(treeNodePtr->rightPtr);
+}
+// Inorder: Left subtree, Root, Right subtree
+void inOrder(TreeNodePtr treeNodePtr){
+    if (treeNodePtr->leftPtr != NULL)
+        preOrder(treeNodePtr->leftPtr);
+    printf("%d",treeNodePtr->data);
+    if (treeNodePtr->rightPtr != NULL)
+        preOrder(treeNodePtr->rightPtr);
+}
+// Postorder: Left subtree, Right subtree, Root
+void postOrder(TreeNodePtr treeNodePtr){
+    if (treeNodePtr->leftPtr != NULL)
+        preOrder(treeNodePtr->leftPtr);
+    if (treeNodePtr->rightPtr != NULL)
+        preOrder(treeNodePtr->rightPtr);
+    printf("%d",treeNodePtr->data);
+}
 int main() {
     TreeNodePtr root;
 
