@@ -18,7 +18,7 @@ TreeNodePtr newNode(int value) {
     treePtr->data = value;
     treePtr->leftPtr = NULL;
     treePtr->rightPtr = NULL;
-    return treePtr;
+    return (treePtr);
 }
 void insertNode(TreeNodePtr* treePtr, int value){
     // If the node is empty assign the value to its data variable
@@ -52,33 +52,45 @@ void insertNode(TreeNodePtr* treePtr, int value){
  * Left subtree
  * Right subtree
  */
-void preOrder(TreeNodePtr treeNodePtr){
-    printf("%d",treeNodePtr->data);
-    if (treeNodePtr->leftPtr != NULL)
-        preOrder(treeNodePtr->leftPtr);
-    if (treeNodePtr->rightPtr != NULL)
-        preOrder(treeNodePtr->rightPtr);
+void preOrder(TreeNodePtr treePtr){
+    printf("%d",treePtr->data);
+    if (treePtr->leftPtr != NULL)
+        preOrder(treePtr->leftPtr);
+    if (treePtr->rightPtr != NULL)
+        preOrder(treePtr->rightPtr);
 }
 // Inorder: Left subtree, Root, Right subtree
-void inOrder(TreeNodePtr treeNodePtr){
-    if (treeNodePtr->leftPtr != NULL)
-        preOrder(treeNodePtr->leftPtr);
-    printf("%d",treeNodePtr->data);
-    if (treeNodePtr->rightPtr != NULL)
-        preOrder(treeNodePtr->rightPtr);
+void inOrder(TreeNodePtr treePtr){
+    if (treePtr == NULL)
+        return;
+    inOrder(treePtr->leftPtr);
+    printf("%d ",treePtr->data);
+
+    inOrder(treePtr->rightPtr);
 }
 // Postorder: Left subtree, Right subtree, Root
-void postOrder(TreeNodePtr treeNodePtr){
-    if (treeNodePtr->leftPtr != NULL)
-        preOrder(treeNodePtr->leftPtr);
-    if (treeNodePtr->rightPtr != NULL)
-        preOrder(treeNodePtr->rightPtr);
-    printf("%d",treeNodePtr->data);
+void postOrder(TreeNodePtr treePtr){
+    if (treePtr->leftPtr != NULL)
+        postOrder(treePtr->leftPtr);
+    if (treePtr->rightPtr != NULL)
+        postOrder(treePtr->rightPtr);
+    printf("%d",treePtr->data);
 }
 int main() {
-    TreeNodePtr root;
+    TreeNodePtr root = NULL;
 
+    insertNode(&root, 16);
+    insertNode(&root, 7);
+    insertNode(&root, 14);
+    insertNode(&root, 24);
+    insertNode(&root, 8);
+    insertNode(&root, 5);
+    insertNode(&root, 11);
+    insertNode(&root, 23);
+    insertNode(&root, 9);
+    insertNode(&root, 12);
 
+    inOrder(root);
 
 
     return 0;
