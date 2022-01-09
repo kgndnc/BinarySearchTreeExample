@@ -53,7 +53,7 @@ void insertNode(TreeNodePtr* treePtr, int value){
  * Right subtree
  */
 void preOrder(TreeNodePtr treePtr){
-    printf("%d",treePtr->data);
+    printf("%d ",treePtr->data);
     if (treePtr->leftPtr != NULL)
         preOrder(treePtr->leftPtr);
     if (treePtr->rightPtr != NULL)
@@ -74,24 +74,27 @@ void postOrder(TreeNodePtr treePtr){
         postOrder(treePtr->leftPtr);
     if (treePtr->rightPtr != NULL)
         postOrder(treePtr->rightPtr);
-    printf("%d",treePtr->data);
+    printf("%d ",treePtr->data);
 }
 int main() {
     TreeNodePtr root = NULL;
 
-    insertNode(&root, 16);
-    insertNode(&root, 7);
-    insertNode(&root, 14);
-    insertNode(&root, 24);
-    insertNode(&root, 8);
-    insertNode(&root, 5);
-    insertNode(&root, 11);
-    insertNode(&root, 23);
-    insertNode(&root, 9);
-    insertNode(&root, 12);
+    printf("The numbers being placed in the tree are:\n");
+    for (int i = 0; i < 10; ++i) {
+        int n = rand() % 25 + 1;
+        printf("%d ", n);
+        insertNode(&root, n);
+    }
 
+    printf("\n\nThe preorder traversal is:\n");
+    preOrder(root);
+
+    printf("\n\nThe inorder traversal is:\n");
     inOrder(root);
 
+    printf("\n\nThe postorder traversal is:\n");
+    postOrder(root);
 
+    getchar();
     return 0;
 }
