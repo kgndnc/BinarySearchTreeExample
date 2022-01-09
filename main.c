@@ -1,3 +1,10 @@
+/**
+ * Author:     Harun Kagan Danaci - 181180020
+ * Created:    18.12.2021
+ * Course:     CENG205 Data Structures
+ * Assignment: Assignment 3
+ *
+ **/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -77,6 +84,7 @@ void postOrder(TreeNodePtr treePtr){
     printf("%d ",treePtr->data);
 }
 int main() {
+    // Creating an empty binary tree
     TreeNodePtr root = NULL;
 
     printf("The numbers being placed in the tree are:\n");
