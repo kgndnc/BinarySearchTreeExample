@@ -1,8 +1,7 @@
 /**
- * Author:     Harun Kagan Danaci - 181180020
+ * Author:     kgndnc
  * Created:    18.12.2021
- * Course:     CENG205 Data Structures
- * Assignment: Assignment 3
+ * Course:     Data Structures
  *
  **/
 #include <stdio.h>
